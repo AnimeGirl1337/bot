@@ -4,13 +4,16 @@ import sched
 import requests
 import telebot
 import os
-BOT_TOKEN = os.environ.get('BOT_TOKEN')
+from back import keep_alive
+
+BOT_TOKEN = os.environ['BOT_TOKEN']
+URL = os.environ['URL']
 s = sched.scheduler(time.time, time.sleep)
 token = BOT_TOKEN
 bot = telebot.TeleBot(token)
-
+keep_alive()
 def get_links():
-    response = requests.post('https://anon4ik-get-furry.hf.space/get_images')
+    response = requests.post(URL)
     if response.text:
         try:
             return response.json()
