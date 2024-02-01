@@ -3,7 +3,8 @@ import time
 import sched
 import requests
 import telebot
-
+import os
+BOT_TOKEN = os.environ.get('BOT_TOKEN')
 s = sched.scheduler(time.time, time.sleep)
 token = BOT_TOKEN
 bot = telebot.TeleBot(token)
