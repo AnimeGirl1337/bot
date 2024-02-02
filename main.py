@@ -32,6 +32,6 @@ def send_message(sc):
     for link in links:
         bot.send_message(-4157560547, str(link))
         bot.send_photo(-1001908844448, str(link))
-    s.enter(50,1, send_message, (sc,))
-s.enter(50, 1 , send_message, (s,))
+    s.enter(3600,1, send_message, (sc,))
+s.enter(3600, 1 , send_message, (s,))
 s.run()
