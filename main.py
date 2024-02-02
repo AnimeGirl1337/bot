@@ -32,5 +32,3 @@ def send_message(sc):
     s.enter(3600,1, send_message, (sc,))
 s.enter(3600, 1 , send_message, (s,))
 s.run()
-
-bot.polling(none_stop=True)
