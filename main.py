@@ -25,10 +25,13 @@ def get_links():
 
 
 def send_message(sc):
-    links = get_links()
+    try:
+        links = get_links()
+    except Exception as e:
+        return str(e)
     for link in links:
         bot.send_message(-4157560547, str(link))
         bot.send_photo(-1001908844448, str(link))
-    s.enter(3600,1, send_message, (sc,))
-s.enter(3600, 1 , send_message, (s,))
+    s.enter(50,1, send_message, (sc,))
+s.enter(50, 1 , send_message, (s,))
 s.run()
