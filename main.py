@@ -31,8 +31,8 @@ def send_message(sc):
     except Exception as e:
         return str(e)
     files = []
-    for link in links:
-        files.append(InputMediaPhoto(str(link)))
+    for link in links[:-1]:
+        files.append(InputMediaPhoto(media = str(link), caption = str(links[-1])))
         try:
             bot.send_message(-4157560547, str(link))
             bot.send_photo(-1001908844448, str(link))
