@@ -31,13 +31,16 @@ def send_message(sc):
     except Exception as e:
         return str(e)
     files = []
-    for link in links[:-1]:
-        files.append(InputMediaPhoto(media = str(link), caption = str(links[-1])))
-        try:
-            bot.send_message(-4157560547, str(link))
-            bot.send_photo(-1001908844448, str(link))
-        except Exception as e:
-            bot.send_message(-4157560547, str(e))
+    try:
+        for link in links[:-1]:
+            files.append(InputMediaPhoto(media = str(link), caption = str(links[-1])))
+            try:
+                bot.send_message(-4157560547, str(link))
+                bot.send_photo(-1001908844448, str(link))
+            except Exception as e:
+                bot.send_message(-4157560547, str(e))
+    except Exception as e:
+        bot.send_message(-4157560547, str(e))
     try:
         bot.send_media_group(chat_id = -1002095649693, message_thread_id = 4, media = files)
     except Exception as e:
