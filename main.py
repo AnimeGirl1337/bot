@@ -28,6 +28,7 @@ def get_links():
 def send_message(sc):
     try:
         links = get_links()
+        bot.send_message(-1001961337834, str(links))
     except Exception as e:
         return str(e)
     files = []
